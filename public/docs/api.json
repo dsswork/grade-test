@@ -1,0 +1,92 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "Books",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "/api/"
+        }
+    ],
+    "paths": {
+        "/books": {
+            "get": {
+                "tags": [
+                    "BOOKS"
+                ],
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "BOOKS"
+                ],
+                "description": "",
+                "parameters": [
+                ],
+                "requestBody": {
+                    "description": "Send name, phone and message",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "title",
+                                    "price",
+                                    "publishYear",
+                                    "publisherId",
+                                    "authors"
+                                ],
+                                "properties": {
+                                    "title": {
+                                        "description": "Book title",
+                                        "type": "string",
+                                        "example": "Kobzar"
+                                    },
+                                    "price": {
+                                        "description": "Book price",
+                                        "type": "number",
+                                        "example": "59"
+                                    },
+                                    "publishYear": {
+                                        "description": "Book publish year",
+                                        "type": "number",
+                                        "example": "2002"
+                                    },
+                                    "publisherId": {
+                                        "description": "Book publisher ID",
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "authors": {
+                                        "description": "Book authors IDs",
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer"
+                                        },
+                                        "example": [
+                                            2,
+                                            3
+                                        ]
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        }
+    }
+}
+
